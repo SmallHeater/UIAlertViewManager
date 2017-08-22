@@ -15,7 +15,18 @@
 		620DD9211F4AEBBF00442E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620DD91F1F4AEBBF00442E4A /* LaunchScreen.storyboard */; };
 		620DD9391F4AEC3B00442E4A /* UIAlertViewManagerLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 620DD9381F4AEC3B00442E4A /* UIAlertViewManagerLibrary.m */; };
 		620DD9401F4AEEFF00442E4A /* UIAlertViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 620DD93F1F4AEEFF00442E4A /* UIAlertViewManager.m */; };
+		6242B5671F4C517900D2626E /* libUIAlertViewManagerLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 620DD92D1F4AEC0B00442E4A /* libUIAlertViewManagerLibrary.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6242B5651F4C516800D2626E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 620DD9061F4AEBBF00442E4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 620DD92C1F4AEC0B00442E4A;
+			remoteInfo = UIAlertViewManagerLibrary;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		620DD92B1F4AEC0B00442E4A /* CopyFiles */ = {
@@ -53,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6242B5671F4C517900D2626E /* libUIAlertViewManagerLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +170,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6242B5661F4C516800D2626E /* PBXTargetDependency */,
 			);
 			name = UIAlertViewManager;
 			productName = UIAlertViewManager;
@@ -253,6 +266,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6242B5661F4C516800D2626E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 620DD92C1F4AEC0B00442E4A /* UIAlertViewManagerLibrary */;
+			targetProxy = 6242B5651F4C516800D2626E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		620DD91A1F4AEBBF00442E4A /* Main.storyboard */ = {
@@ -370,6 +391,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = UIAlertViewManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinher.myLibrary.UIAlertViewManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -389,6 +411,7 @@
 		620DD9341F4AEC0B00442E4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
