@@ -14,6 +14,7 @@
 		620DD91E1F4AEBBF00442E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 620DD91D1F4AEBBF00442E4A /* Assets.xcassets */; };
 		620DD9211F4AEBBF00442E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620DD91F1F4AEBBF00442E4A /* LaunchScreen.storyboard */; };
 		620DD9391F4AEC3B00442E4A /* UIAlertViewManagerLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 620DD9381F4AEC3B00442E4A /* UIAlertViewManagerLibrary.m */; };
+		620DD9401F4AEEFF00442E4A /* UIAlertViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 620DD93F1F4AEEFF00442E4A /* UIAlertViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +43,9 @@
 		620DD92D1F4AEC0B00442E4A /* libUIAlertViewManagerLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUIAlertViewManagerLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		620DD9371F4AEC3B00442E4A /* UIAlertViewManagerLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewManagerLibrary.h; sourceTree = "<group>"; };
 		620DD9381F4AEC3B00442E4A /* UIAlertViewManagerLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewManagerLibrary.m; sourceTree = "<group>"; };
+		620DD93B1F4AEE9A00442E4A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		620DD93E1F4AEEFF00442E4A /* UIAlertViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewManager.h; sourceTree = "<group>"; };
+		620DD93F1F4AEEFF00442E4A /* UIAlertViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 				620DD9101F4AEBBF00442E4A /* UIAlertViewManager */,
 				620DD92E1F4AEC0B00442E4A /* UIAlertViewManagerLibrary */,
 				620DD90F1F4AEBBF00442E4A /* Products */,
+				620DD93A1F4AEE9A00442E4A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +112,7 @@
 		620DD92E1F4AEC0B00442E4A /* UIAlertViewManagerLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				620DD93D1F4AEEDA00442E4A /* Controller */,
 				620DD9361F4AEC3B00442E4A /* Interface */,
 			);
 			path = UIAlertViewManagerLibrary;
@@ -119,6 +125,23 @@
 				620DD9381F4AEC3B00442E4A /* UIAlertViewManagerLibrary.m */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		620DD93A1F4AEE9A00442E4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				620DD93B1F4AEE9A00442E4A /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		620DD93D1F4AEEDA00442E4A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				620DD93E1F4AEEFF00442E4A /* UIAlertViewManager.h */,
+				620DD93F1F4AEEFF00442E4A /* UIAlertViewManager.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				620DD9391F4AEC3B00442E4A /* UIAlertViewManagerLibrary.m in Sources */,
+				620DD9401F4AEEFF00442E4A /* UIAlertViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -333,7 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -399,6 +423,7 @@
 				620DD9271F4AEBBF00442E4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		620DD9331F4AEC0B00442E4A /* Build configuration list for PBXNativeTarget "UIAlertViewManagerLibrary" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +432,7 @@
 				620DD9351F4AEC0B00442E4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
