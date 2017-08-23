@@ -57,9 +57,35 @@
     
     NSString * title = [[NSString alloc] initWithFormat:@"第%ld个view",(long)viewNumber];
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+
+    view.backgroundColor = [UIColor grayColor];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, 100, 40)];
+    label.text = title;
+    [view addSubview:label];
     
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn.frame = CGRectMake(60, 0, 40, 40);
+    [btn setTitle:@"关闭" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:btn];
+    [UIAlertViewManagerLibrary addShowView:view];
+    viewNumber++;
 }
 
+
+- (IBAction)addAlertAndAction:(id)sender {
+    [self addAlert:nil];
+    [self addAction:nil];
+    [self addAction:nil];
+    [self addView:nil];
+    [self addAlert:nil];
+    [self addAlert:nil];
+}
+
+-(void)btnClicked:(UIButton *)btn{
+    UIView * parentView = btn.superview;
+    [UIAlertViewManagerLibrary deleShowView:parentView];
+}
 
 #pragma mark  ----  代理
 #pragma mark  ----  UIAlertViewDelegate

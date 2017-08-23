@@ -16,6 +16,7 @@
 		620DD9391F4AEC3B00442E4A /* UIAlertViewManagerLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 620DD9381F4AEC3B00442E4A /* UIAlertViewManagerLibrary.m */; };
 		620DD9401F4AEEFF00442E4A /* UIAlertViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 620DD93F1F4AEEFF00442E4A /* UIAlertViewManager.m */; };
 		6242B5671F4C517900D2626E /* libUIAlertViewManagerLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 620DD92D1F4AEC0B00442E4A /* libUIAlertViewManagerLibrary.a */; };
+		62F6D6011F4D7FF800A60AAE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F6D6001F4D7FF800A60AAE /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		620DD93B1F4AEE9A00442E4A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		620DD93E1F4AEEFF00442E4A /* UIAlertViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewManager.h; sourceTree = "<group>"; };
 		620DD93F1F4AEEFF00442E4A /* UIAlertViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewManager.m; sourceTree = "<group>"; };
+		62F6D5FF1F4D7FF800A60AAE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		62F6D6001F4D7FF800A60AAE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,7 @@
 		620DD9101F4AEBBF00442E4A /* UIAlertViewManager */ = {
 			isa = PBXGroup;
 			children = (
+				62F6D5FD1F4D7FF800A60AAE /* lib */,
 				620DD9141F4AEBBF00442E4A /* AppDelegate.h */,
 				620DD9151F4AEBBF00442E4A /* AppDelegate.m */,
 				620DD9171F4AEBBF00442E4A /* ViewController.h */,
@@ -154,6 +158,23 @@
 				620DD93F1F4AEEFF00442E4A /* UIAlertViewManager.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		62F6D5FD1F4D7FF800A60AAE /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				62F6D5FE1F4D7FF800A60AAE /* MBProgressHUD */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		62F6D5FE1F4D7FF800A60AAE /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				62F6D5FF1F4D7FF800A60AAE /* MBProgressHUD.h */,
+				62F6D6001F4D7FF800A60AAE /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +274,7 @@
 				620DD9191F4AEBBF00442E4A /* ViewController.m in Sources */,
 				620DD9161F4AEBBF00442E4A /* AppDelegate.m in Sources */,
 				620DD9131F4AEBBF00442E4A /* main.m in Sources */,
+				62F6D6011F4D7FF800A60AAE /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

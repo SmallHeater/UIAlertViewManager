@@ -7,9 +7,8 @@
 //
 
 #import "UIAlertViewManagerLibrary.h"
-#import <UIKit/UIKit.h>
 #import "UIAlertViewManager.h"
-
+#import "MBProgressHUD.h"
 
 @interface UIAlertViewManagerLibrary ()
 @property (nonatomic,strong) UIAlertViewManager * manager;
@@ -20,6 +19,7 @@
 
 #pragma mark  ----  自定义函数
 +(UIAlertViewManagerLibrary *)sharedManager{
+    
     static UIAlertViewManagerLibrary * manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -30,70 +30,28 @@
 
 #pragma mark  ----  将需要弹出展示的view给管理类(可接收 UIView,UIAlertView,UIAlertController,UIViewController类型)
 +(void)addShowView:(id)showView{
-    if (showView && ([showView isKindOfClass:[UIView class]] || [showView isKindOfClass:[UIAlertView  class]] || [showView isKindOfClass:[UIAlertController class]] || [showView isKindOfClass:[UINavigationController class]] || [showView isKindOfClass:[UIViewController class]]))
-    {
+    
+    if (showView && ([showView isKindOfClass:[UIView class]] || [showView isKindOfClass:[UIAlertView  class]] || [showView isKindOfClass:[UIAlertController class]] || [showView isKindOfClass:[UIActionSheet class]])){
+        
         [[UIAlertViewManagerLibrary sharedManager].manager addView:showView];
+    }
+    else{
+    
+        [MBProgressHUD displayHudError:@"不支持此种类型"];
     }
 }
 
 #pragma mark  ----  将已隐藏的view从管理类中移除
 +(void)deleShowView:(id)showView{
-    if (showView && ([showView isKindOfClass:[UIView class]] || [showView isKindOfClass:[UIAlertView  class]] || [showView isKindOfClass:[UIAlertController class]] || [showView isKindOfClass:[UINavigationController class]] || [showView isKindOfClass:[UIViewController class]]))
-    {
+    
+    if (showView && ([showView isKindOfClass:[UIView class]] || [showView isKindOfClass:[UIAlertView  class]] || [showView isKindOfClass:[UIAlertController class]] || [showView isKindOfClass:[UIActionSheet class]])){
+        
         [[UIAlertViewManagerLibrary sharedManager].manager deleteView:showView];
     }
-}
-
-
-#pragma mark  ----  创建一个系统的UIAlertController，并扔给管理类，target不传，则不显示按钮,action不传，则不显示对应的按钮(IOS 8一下，不可用该方法)
-+(void)createUIAlertControllerWithTitle:(NSString *)title andContent:(NSString *)content andTarget:(id)target andCancaleButtonSEL:(SEL)cancleAction andagreeButtonSEL:(SEL)agreeAction{
-    NSString * titleString = [UIAlertViewManagerLibrary getString:title];
-    NSString * contentString = [UIAlertViewManagerLibrary getString:content];
+    else{
     
-    BOOL isShowCancleButton;
-    if (cancleAction && target)
-    {
-        isShowCancleButton = YES;
+        [MBProgressHUD displayHudError:@"不支持此种类型"];
     }
-    
-    BOOL isShowAgreeButton;
-    if (agreeAction && target)
-    {
-        isShowAgreeButton = YES;
-    }
-    
-#ifdef __IPHONE_8_0
-    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:titleString message:contentString preferredStyle:UIAlertControllerStyleAlert];
-    if (isShowCancleButton)
-    {
-        UIAlertAction * cancleAlertAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *  action) {
-            
-            if ([target respondsToSelector:cancleAction])
-            {
-                [target performSelector:cancleAction];
-            }
-            [UIAlertViewManagerLibrary deleShowView:alertController];
-        }];
-        [alertController addAction:cancleAlertAction];
-    }
-    
-    if (isShowAgreeButton)
-    {
-        UIAlertAction * agreeAlertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *  action) {
-            
-            if ([target respondsToSelector:agreeAction])
-            {
-                [target performSelector:agreeAction];
-            }
-            
-            [UIAlertViewManagerLibrary deleShowView:alertController];
-        }];
-        [alertController addAction:agreeAlertAction];
-    }
-    [UIAlertViewManagerLibrary addShowView:alertController];
-#else
-    NSLog(@"IOS 8以下 创建自定义view有问题，点击事件无法和alertView绑定");
-#endif
 }
 
 #pragma mark  ----  传入字符串，判空处理后传出

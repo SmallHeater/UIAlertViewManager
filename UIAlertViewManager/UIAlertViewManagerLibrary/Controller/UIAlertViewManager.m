@@ -26,19 +26,17 @@
 -(void)addView:(id)showView{
     
     NSMutableArray * tempAlertViewArray = self.alertViewArray.mutableCopy;
-    for (id view in tempAlertViewArray)
-    {
-        if ([view isEqual:showView])
-        {
+    for (id view in tempAlertViewArray){
+        
+        if ([view isEqual:showView]){
+            
             //避免同一个view被添加多次
             return;
         }
     }
     [self.alertViewArray addObject:showView];
-    
-    
-    if (!self.hasShowView && self.alertViewArray.count > 0)
-    {
+    if (!self.hasShowView && self.alertViewArray.count > 0){
+        
         //展示一个view
         id showView = self.alertViewArray[0];
         [self showFirstView:showView];
@@ -49,12 +47,12 @@
 -(void)deleteView:(id)showView{
     
     NSMutableArray * tempAlertViewArray = self.alertViewArray.mutableCopy;
-    for (id view in tempAlertViewArray)
-    {
-        if ([view isEqual:showView])
-        {
-            if ([showView isKindOfClass:[UIView class]])
-            {
+    for (id view in tempAlertViewArray){
+        
+        if ([view isEqual:showView]){
+            
+            if ([showView isKindOfClass:[UIView class]]){
+                
                 [showView removeFromSuperview];
             }
             
@@ -62,8 +60,8 @@
             
             //从数组删除老的view，展示新的view
             [self.alertViewArray removeObject:showView];
-            if (self.alertViewArray.count > 0)
-            {
+            if (self.alertViewArray.count > 0){
+                
                 id showView = self.alertViewArray[0];
                 NSTimer * timer = nil;
                 timer = [NSTimer scheduledTimerWithTimeInterval:DELAYTIMEINTERVAL target:self selector:@selector(showNextView:) userInfo:showView repeats:NO];
@@ -91,22 +89,19 @@
 -(void)showView:(id)showView{
     
     self.hasShowView = YES;
-    if ([showView isKindOfClass:[UIAlertView class]])
-    {
+    if ([showView isKindOfClass:[UIAlertView class]]){
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [(UIAlertView*)showView show];
         });
     }
-    else if ([showView isKindOfClass:[UIAlertController class]])
-    {
+    else if ([showView isKindOfClass:[UIActionSheet class]]){
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[self topMostController] presentViewController:showView animated:NO completion:^{
-                
-            }];
+            [(UIActionSheet*)showView showInView:[UIApplication sharedApplication].keyWindow];
         });
     }
-    else if ([showView isKindOfClass:[UIViewController class]] || [showView isKindOfClass:[UINavigationController class]])
-    {
+    else if ([showView isKindOfClass:[UIAlertController class]]){
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [[self topMostController] presentViewController:showView animated:NO completion:^{
@@ -114,8 +109,8 @@
             }];
         });
     }
-    else
-    {
+    else if ([showView isKindOfClass:[UIView class]]){
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [[UIApplication sharedApplication].keyWindow addSubview:showView];
         });
