@@ -1,0 +1,4 @@
+# UIAlertViewManager
+UIAlertView中中中，UIActionSheet，UIView的的的，UIAlertViewController管理组件
+变异一个libUIAlertViewManagerLibrary.a，拷贝UIAlertViewManagerLibrary.h文件到自己的工程中即可使用本组件。
+本组件用于解决一次性弹出多个的的的UIView的时的冲突问题。
